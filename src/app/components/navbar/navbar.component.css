@@ -1,0 +1,57 @@
+.navbar {
+    background-color: rgb(13 116 137);
+}
+
+.sticky-top {
+    position: sticky;
+}
+
+.navbar-nav {
+    margin-left: 87%;
+}
+
+.cart {
+    margin-left: 67%;
+}
+
+.byn {
+    border: none;
+    background-color: rgb(13 116 137);
+}
+
+.navbar-brand {
+    margin-left: 7%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#navbarDarkDropdownMenuLink {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.dropdown-item {
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo {
+    width: 80px;
+    height: 10vh;
+}
+
+
+@media screen and (max-width: 991px) {
+    .navbar-nav {
+        margin-left: auto;
+    }
+
+    .navbar-toggler {
+        width: 50px;
+        background-color: white;
+        margin-left: 40%;
+    }
+
+    .dropdown-menu {
+        width: 20%;
+    }
+}

@@ -1,0 +1,36 @@
+<div class="image">
+    <div class="registerForm">
+        <nav class="navbar">
+            <h5 class="text-center text-white">Create User</h5>
+        </nav>
+        <div class="card">
+            <form [formGroup]="userSignup">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">User Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="password"
+                        formControlName="password">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="password1" placeholder="Confirm Password"
+                        formControlName="confirmPassword" [style.color]="color" (input)="checkConfirmPassword()">
+                </div>
+                <div class="paragraph pb-2" *ngIf="message" [style.color]="responseColor">
+                    <p> {{responseMessage}}</p>
+                </div>
+                <div class="mb-3">
+                    <button class="btn w-100" mat-raised-button [disabled]="userSignup.invalid"
+                        (click)="onSubmit()">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="image">
+    <div class="registerForm">
+        <nav class="navbar">
+            <h5 class="text-center text-white">Login</h5>
+        </nav>
+        <div class="card">
+            <form [formGroup]="loginForm">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">User Name</label>
+                    <input type="email" class="form-control" id="userName" placeholder="User Name"
+                        formControlName="userName">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password"
+                        formControlName="password">
+                </div>
+                <div class="paragraph pb-2" *ngIf="message" [style.color]="messageColor">
+                    <p> {{responseMessage}}</p>
+                </div>
+                <div class="mb-3">
+                    <button class="btn w-100" mat-raised-button [disabled]="loginForm.invalid"
+                        (click)="login()">Login</button>
+                </div>
+                <hr>
+                <div class="mb-2 mt-2">
+                    <div class="paragraph">
+                        <p>If you do not have an account, please click here to signup</p>
+                        <div class="">
+                            <button type="button" class="btn w-100" (click)="gotoSignup()">signup</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

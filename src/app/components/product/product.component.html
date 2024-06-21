@@ -1,0 +1,84 @@
+<div class="container-fluid containeTop">
+    <div class="d-flex mt-3 mx-3 parentFlex">
+        <div class="d-flex">
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>SORT BY</mat-label>
+                <mat-select>
+                    <mat-option value="lowPrice" (click)="getAllProducts()">All Product</mat-option>
+                    <mat-option value="lowPrice" (click)="sortMinPrice()">Low to High</mat-option>
+                    <mat-option value="highPrice" (click)="sortMaxPrice()">High to Low</mat-option>
+                    <mat-option value="starRate" (click)="sortStarRate()">Rating</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <form class="d-flex mx-3 mt-1">
+                <input class="form-control" type="search" [(ngModel)]="searchKey" placeholder="Search"
+                    aria-label="Search" [ngModelOptions]="{standalone: true}">
+                <!-- <button class="btn btn-outline-secondary" type="submit">Search</button> -->
+            </form>
+
+            <div class="ms-5">
+                <ngx-slider [(value)]="minValue" [(highValue)]="highValue" [options]="options"></ngx-slider>
+                <label class="me-2">Min: </label><input type="number" class="w-25 me-2" [(ngModel)]="minValue">
+                <label class="me-2">Max: </label><input type="number" class="w-25" [(ngModel)]="highValue">
+            </div>
+        </div>
+        <div class=" mt-2">
+            <a class="logout" routerLink="" (click)="logout()"><i
+                    class="bi bi-person-fill pe-2"></i><span>Logout</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5">
+    <div class="mx-3">
+        <div class="mb-3">
+            <h5 class="fs-5">Related Products</h5>
+        </div>
+        <button type="button" class="btn btn-outline-secondary category" (click)="filters('')">All</button>
+        <button type="button" class="btn btn-outline-secondary category ms-4"
+            (click)="filters('Biscuit')">Biscuits</button>
+        <button type="button" class="btn btn-outline-secondary ms-4 category" (click)="filters('Grain')">Grain</button>
+        <button type="button" class="btn btn-outline-secondary ms-4 category"
+            (click)="filters('Detergent')">Detergents</button>
+    </div>
+</div>
+
+<div class="container-fluid mb-5">
+    <div class="row m-3" *ngFor="let products of listOfProducts | filter: searchKey; let index=index">
+        <!-- <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"> -->
+        <!-- Card-->
+        <div class="card rounded border-0">
+            <div class="card-body p-4"><img src="{{products.image}}" alt="" class="img-fluid d-block mx-auto mb-3">
+                <h5 class="text-dark">{{products.productName}}</h5>
+
+                <p class="small text-muted font-italic"><span><i class="bi bi-currency-rupee"></i></span>
+                    {{products.price}}</p>
+                <div class="cartRow">
+                    <div>
+                        <ul class="list-inline mt-2">
+                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                            <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                            <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                            <p>{{products.starRate}}</p>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="cart mt-3">
+                            <button type="text" class="offer">
+                                <span>{{products.offer}}<i class="bi bi-percent" style="font-size: 12px;"></i></span>
+                                Off</button>
+                        </div>
+                        <div class="cart mt-3">
+                            <button type="text" class="add" (click)="addtoCart(products)">
+                                <span><i class="bi bi-cart3" style="font-size: 17px;"></i></span> Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</div>

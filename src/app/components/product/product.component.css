@@ -1,0 +1,117 @@
+.form-control {
+    height: 8.5vh;
+}
+
+/* .containeTop {
+    margin-top: 6%
+} */
+
+.parentFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn {
+    height: 8.5vh;
+}
+
+.btn:hover {
+    background-color: rgb(13 116 137);
+}
+
+ngx-slider {
+    font-size: 7px;
+}
+
+.logout {
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+.category {
+    border: none;
+    background-color: rgb(95, 190, 209);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    height: 6vh;
+}
+
+fs-5,
+fs-6 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 5px 3px;
+    border: 1px solid darkslategray;
+}
+
+.mb-5 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+img {
+    width: 150px;
+    height: 170px
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-dark {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 20%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.small {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 25%;
+    color: black;
+}
+
+li {
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.cartRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add {
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px;
+    color: white;
+    background-color: rgb(95, 190, 209);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.add:hover {
+    background-color: rgb(13 116 137);
+}
+
+.offer {
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    width: 100%;
+    color: white;
+    background-color: lightseagreen;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

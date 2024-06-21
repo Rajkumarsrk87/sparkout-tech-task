@@ -1,0 +1,110 @@
+[
+    {
+        "productId": 1,
+        "productName": "Britannia Biscuit",
+        "price": 80,
+        "offer": 10,
+        "starRate": 20.3,
+        "image": "../assets/images/GoodDay.jpg",
+        "category": "Biscuit"
+    },
+    {
+        "productId": 2,
+        "productName": "Noodles Origional",
+        "price": 40,
+        "offer": 10,
+        "starRate": 10.3,
+        "image": "../assets/images/Noodles.jpg",
+        "category": "Noodles"
+    },
+    {
+        "productId": 3,
+        "productName": "7UP Cooldrink",
+        "price": 35,
+        "offer": 10,
+        "starRate": 45.3,
+        "image": "../assets/images/7UP.jpeg",
+        "category": "CoolDrinks"
+    },
+    {
+        "productId": 4,
+        "productName": "Bingo Green",
+        "price": 10,
+        "offer": 10,
+        "starRate": 35.33,
+        "image": "../assets/images/Bingo.jpg",
+        "category": "Bingo"
+    },
+    {
+        "productId": 5,
+        "productName": "Nutri Grain",
+        "price": 120,
+        "offer": 10,
+        "starRate": 85.3,
+        "image": "../assets/images/NutriGrain.jpg",
+        "category": "Biscuit"
+    },
+    {
+        "productId": 6,
+        "productName": "Hair Shampoo",
+        "price": 78,
+        "offer": 10,
+        "starRate": 77.3,
+        "image": "../assets/images/Shampoo.jpg",
+        "category": "Shapmoo"
+    },
+    {
+        "productId": 7,
+        "productName": "Surf Excel Powder",
+        "price": 145,
+        "offer": 10,
+        "starRate": 65.3,
+        "image": "../assets/images/SurfExcel.jpg",
+        "category": "Detergent"
+    },
+    {
+        "productId": 8,
+        "productName": "Tide Powder",
+        "price": 99,
+        "offer": 10,
+        "starRate": 53.3,
+        "image": "../assets/images/Tide.jpg",
+        "category": "Detergent"
+    },
+    {
+        "productId": 9,
+        "productName": "Whole Grain",
+        "price": 158,
+        "offer": 10,
+        "starRate": 90.3,
+        "image": "../assets/images/WholeGrain.jpg",
+        "category": "Grain"
+    },
+    {
+        "productId": 10,
+        "productName": "Gold Fish Grain",
+        "price": 180,
+        "offer": 10,
+        "starRate": 78.3,
+        "image": "../assets/images/Goldfish.jpg",
+        "category": "Grain"
+    },
+    {
+        "productId": 11,
+        "productName": "Marry Gold",
+        "price": 65,
+        "offer": 10,
+        "starRate": 45.3,
+        "image": "../assets/images/Britanniya.jpg",
+        "category": "Biscuit"
+    },
+    {
+        "productId": 12,
+        "productName": "Surf Excel Powder",
+        "price": 75,
+        "offer": 10,
+        "starRate": 27.3,
+        "image": "../assets/images/SurfExcel.jpg",
+        "category": "Detergent"
+    }
+]
