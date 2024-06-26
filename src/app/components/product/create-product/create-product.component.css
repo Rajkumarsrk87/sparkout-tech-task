@@ -1,0 +1,67 @@
+.card {
+    width: 45%;
+    padding: 20px;
+    margin: 0px 10px 20px 10px;
+    border-radius: 10px;
+}
+
+.navbar {
+    width: 45%;
+    margin: 20px 10px 0px 10px;
+    background-color: rgb(50 151 171);
+    height: 7vh;
+    border-radius: 5px;
+}
+
+h5 {
+    margin-left: 30%;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-label {
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form-control {
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form-control.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+
+.registerForm {
+    margin-left: 35%;
+}
+
+.image {
+    background: url("../../../../assets/images/background2.jpg");
+}
+
+.btn {
+    background-color: rgb(50 151 171);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background-color: rgb(13 116 137);
+}
+
+@media screen and (max-width: 575px) {
+    .card {
+        width: 80%;
+    }
+
+    .navbar {
+        width: 80%;
+    }
+
+    .registerForm {
+        margin-left: 10%;
+    }
+}

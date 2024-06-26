@@ -20,6 +20,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { CartComponent } from './components/cart/cart.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { CreateProductComponent } from './components/product/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     ProductComponent,
     LayoutComponent,
     FilterPipe,
-    CartComponent
+    CartComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,

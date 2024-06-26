@@ -1,0 +1,57 @@
+<div class="image">
+    <div class="registerForm">
+        <nav class="navbar">
+            <h5 class="text-center text-white">Create Product</h5>
+        </nav>
+        <div class="card">
+            <form [formGroup]="createProduct">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Category</label>
+                    <select class="form-control" aria-label="Default select example" id="category"
+                        placeholder="Category" formControlName="category">
+                        <!-- <option selected value="Category">Select</option> -->
+                        <option value="Biscuit">Biscuit</option>
+                        <option value="Grain">Grain</option>
+                        <option value="Detergent">Detergent</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Product Name</label>
+                    <input type="text" class="form-control" id="productName" placeholder="Product Name"
+                        formControlName="productName">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="price" placeholder="price" formControlName="price">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Offer</label>
+                    <input type="number" class="form-control" id="offer" placeholder="Offer" formControlName="offer">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Star Rate</label>
+                    <input type="text" class="form-control" id="starRate" placeholder="Star Rate"
+                        formControlName="starRate">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Product Image</label>
+                    <input type="file" class="form-control" id="image" (change)="onChange($event)"
+                        placeholder="Product Image" formControlName="image">
+                </div>
+                <div class="paragraph pb-2" *ngIf="message" [style.color]="messageColor">
+                    <p> {{statusMessage}}</p>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <button class="btn w-100" mat-raised-button [disabled]="createProduct.invalid"
+                            (click)="createProducts()">Create</button>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn w-100" mat-raised-button (click)="gotoProducts()">back</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

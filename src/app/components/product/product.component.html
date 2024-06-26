@@ -14,7 +14,6 @@
             <form class="d-flex mx-3 mt-1">
                 <input class="form-control" type="search" [(ngModel)]="searchKey" placeholder="Search"
                     aria-label="Search" [ngModelOptions]="{standalone: true}">
-                <!-- <button class="btn btn-outline-secondary" type="submit">Search</button> -->
             </form>
 
             <div class="ms-5">
@@ -31,54 +30,77 @@
 </div>
 
 <div class="container-fluid mt-5">
-    <div class="mx-3">
-        <div class="mb-3">
-            <h5 class="fs-5">Related Products</h5>
+    <div class="d-flex related-flex">
+        <div class="mx-3">
+            <div class="mb-3">
+                <h5 class="fs-5">Related Products</h5>
+            </div>
+            <button type="button" class="btn btn-outline-secondary category"
+                (click)="getProductByCategory('Biscuit')">Biscuits</button>
+            <button type="button" class="btn btn-outline-secondary ms-4 category"
+                (click)="getProductByCategory('Grain')">Grain</button>
+            <button type="button" class="btn btn-outline-secondary ms-4 category"
+                (click)="getProductByCategory('Detergent')">Detergents</button>
         </div>
-        <button type="button" class="btn btn-outline-secondary category" (click)="filters('')">All</button>
-        <button type="button" class="btn btn-outline-secondary category ms-4"
-            (click)="filters('Biscuit')">Biscuits</button>
-        <button type="button" class="btn btn-outline-secondary ms-4 category" (click)="filters('Grain')">Grain</button>
-        <button type="button" class="btn btn-outline-secondary ms-4 category"
-            (click)="filters('Detergent')">Detergents</button>
+        <div class="mt-4">
+            <button type="button" class="btn btn-outline-secondary category mx-3" (click)="gotoCreateProduct()">Create
+                Product</button>
+        </div>
     </div>
 </div>
 
-<div class="container-fluid mb-5">
-    <div class="row m-3" *ngFor="let products of listOfProducts | filter: searchKey; let index=index">
-        <!-- <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"> -->
-        <!-- Card-->
-        <div class="card rounded border-0">
-            <div class="card-body p-4"><img src="{{products.image}}" alt="" class="img-fluid d-block mx-auto mb-3">
-                <h5 class="text-dark">{{products.productName}}</h5>
 
-                <p class="small text-muted font-italic"><span><i class="bi bi-currency-rupee"></i></span>
-                    {{products.price}}</p>
-                <div class="cartRow">
-                    <div>
-                        <ul class="list-inline mt-2">
-                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                            <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
-                            <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
-                            <p>{{products.starRate}}</p>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="cart mt-3">
-                            <button type="text" class="offer">
-                                <span>{{products.offer}}<i class="bi bi-percent" style="font-size: 12px;"></i></span>
-                                Off</button>
+<div *ngIf="listOfProducts.length != 0">
+    <div class="container-fluid mb-5">
+        <div class="row m-3" *ngFor="let products of listOfProducts | filter: searchKey; let index=index">
+            <div class="card rounded border-0">
+                <div class="card-body p-4"><img src="{{imageSrc}}" alt="" class="img-fluid d-block mx-auto mb-3">
+                    <h5 class="text-dark">{{products.productName}}</h5>
+
+                    <p class="small text-muted font-italic"><span><i class="bi bi-currency-rupee"></i></span>
+                        {{products.price}}</p>
+                    <div class="cartRow">
+                        <div>
+                            <ul class="list-inline mt-2">
+                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                                <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                                <p>{{products.starRate}}</p>
+                            </ul>
                         </div>
-                        <div class="cart mt-3">
-                            <button type="text" class="add" (click)="addtoCart(products)">
-                                <span><i class="bi bi-cart3" style="font-size: 17px;"></i></span> Add</button>
+                        <div>
+                            <div class="cart mt-3">
+                                <button type="text" class="offer">
+                                    <span>{{products.offer}}<i class="bi bi-percent"
+                                            style="font-size: 12px;"></i></span>
+                                    Off</button>
+                            </div>
+                            <div class="cart mt-3">
+                                <button type="text" class="add" (click)="addtoCart(products)">
+                                    <span><i class="bi bi-cart3" style="font-size: 17px;"></i></span> Add</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- </div> -->
         </div>
-        <!-- </div> -->
+    </div>
+</div>
+
+
+<div class="mt-5" *ngIf="listOfProducts.length == 0">
+    <div class="container containerTop2 pb-4">
+        <div class="card">
+            <h5 class="card-title fs-5 p-4">My Products</h5>
+            <div class="text-center center pb-3">
+                <img src="../../../assets/images/EmptyCart.jpg" alt="">
+                <h4 class="fs-4">Your product is empty!</h4>
+                <h6 class="fs-6">Add product to it now</h6>
+                <button routerLink="/createProduct" class="btn btn-primary mb-3" type="button">Create Poduct</button>
+            </div>
+        </div>
     </div>
 </div>

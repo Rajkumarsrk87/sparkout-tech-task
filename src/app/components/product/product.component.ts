@@ -5,6 +5,7 @@ import { ProductService } from 'src/app/service/product.service';
 import { UserDataService } from 'src/app/service/user-data.service';
 import { Options } from '@angular-slider/ngx-slider';
 import { Emitters } from 'src/app/emitters/emitter';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product',
@@ -17,7 +18,8 @@ export class ProductComponent implements OnInit {
     private productService: ProductService,
     public userDataService: UserDataService,
     public cartService: CartService,
-    private route: Router
+    private route: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   searchKey!: string;
@@ -34,24 +36,27 @@ export class ProductComponent implements OnInit {
   };
 
   listOfProducts: any = [];
-  filterCategoryList: any = []
+  filterCategoryList: any = [];
+
+  imageSrc: any;
+
 
   getAllProducts() {
-    this.productService.getListOfProducts().subscribe((response) => {
+    this.productService.getAllProducts().subscribe((response) => {
       this.listOfProducts = response;
 
       this.listOfProducts.forEach((a: any) => {
+        const byteNumbers = new Uint8Array(a.image.data);
+        const blob = new Blob([byteNumbers], { type: 'image/jpeg' });
+        const imageUrl = URL.createObjectURL(blob);
+        const image = new Image();
+        image.src = imageUrl
+        this.imageSrc = image.src
+        // this.imageSrc = this.sanitizer.bypassSecurityTrustUrl(image.src);
+
         Object.assign(a, { quantity: 1, total: a.price });
         return a.price >= this.minValue && a.price <= this.highValue;
       });
-    })
-  }
-
-  filters(category: any) {
-    this.listOfProducts.filter((a: any) => {
-      if (a.category == category || a.category == '') {
-        return a.category;
-      }
     })
   }
 
@@ -76,10 +81,14 @@ export class ProductComponent implements OnInit {
     this.cartService.addtoCart(item);
   }
 
-  getProductByCategory() {
-    this.productService.getProductByCategory(this.listOfProducts.category).subscribe((res) => {
+  getProductByCategory(category: any) {
+    this.productService.getProductByCategories(category).subscribe((res) => {
       this.listOfProducts = res;
     })
+  }
+
+  gotoCreateProduct() {
+    this.route.navigate(["/createProduct"])
   }
 
   logout() {
